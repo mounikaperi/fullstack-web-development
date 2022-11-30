@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Images</title>
+</head>
+<body>
+    <h1>Responsive Images</h1>
+    <img srcset="elva-fairy-480w.jpg, elva-fairy-800w.jpg 800w" sizes="(max-width: 600px) 480px, 800px" src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy"/>
+    <picture>
+        <source media="(max-width: 799px)" srcset="elva-480w-close-potrait.jpg" />
+        <source media="(min-width: 800px)" srcset="elva-800w.jpg" />
+        <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+    </picture>
+    <picture>
+        <source type="image/svg+xml" srcset="pyramid.svg"/>
+        <source type="image/webp" srcset="pyramid.webp" />
+        <img src="pyramid.png" alt="regular pyramid built from four equilateral triangles" />
+    </picture>
+</body>
+</html>
