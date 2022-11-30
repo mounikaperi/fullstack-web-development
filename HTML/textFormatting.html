@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting</title>
+</head>
+<body>
+    <h1>Text Formatting</h1>
+    <!-- Abbreviations -->
+    <p>We use <abbr title="HTML">HTML</abbr>, HyperText Markup Language to structure our web documents.</p>
+    <p>I think <abbr title="Reverend">Rev</abbr>. Green did it in the kitchen with the chainsaw.</p>
+    <p><abbr title="NASA">NASA</abbr>, the National Aeronatics and Space Administration, sure does some exciting work.</p>
+    <!-- Marking up contact details -->
+    <address>
+        <p>
+            Chris Mills <br>
+            Manchester <br>
+            The Grim North <br>
+            UK
+        </p>
+        <ul>
+            <li>Tel: 01234 567 890</li>
+            <li>Email: me@grim-north.co.uk</li>
+        </ul>
+    </address>
+    <!-- Superscript and Subscript -->
+    <p>My birthday is on 20<sup>th</sup> of August 1996</p>
+    <p>Caffeine's chemical formula is C<sub>8</sub>H<sub>10</sub>N<sub>4</sub>O<sub>2</sub>.</p>
+    <p>If x<sup>2</sup> is 9, x must equal 3 or -3.</p>
+    <!-- Representing Computer Code -->
+    <pre>
+        <code>
+            const para = document.querySelector('p');
+            para.onclick = function () {
+                alert('Stop poking me!')
+            }
+        </code>
+    </pre>
+    <p>
+        You shouldn't use presentational elements like <code>&lt;font&gt;</code> and <code>&lt;center&gt;</code>.
+    </p>
+    <p>In the above JavaScript example, <var>para</var> represents a paragrpah element.</p>
+    <p>Select all the text with <kbd>Ctrl</kbd><kbd>Cmd</kbd> + <kbd>A</kbd>.</p>
+    <pre> $ <kbd>ping mozilla.org</kbd><samp>PING mozilla.org (63.245.215.20): 56 data bytes 64 bytes from 63.245.215.20: icmp_seq=0 ttl=40 time=158.233 ms        </samp></pre>
+    <!-- Marking up times and dates  -->
+    <time datetime="2022-11-19">19 November 2022</time>
+    <time datetime="2022-11">November 2022</time>
+    <time datetime="11-19">19 November 2022</time>
+    <time datetime="19:30">19:30</time>
+    <time datetime="19:30:01.856">19:30:01.856</time>
+    <time datetime="2022-11-19T19:30">7:30PM, 19 November 2022</time>
+    <time datetime="2022-11-19T19:30+01:00">07:30PM, 20 January 2016 is 8:30PM in France</time>
+    <time datetime="2022-W04">The fourth week of 2022</time>
+</body>
+</html>
