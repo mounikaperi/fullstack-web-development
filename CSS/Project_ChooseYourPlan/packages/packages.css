@@ -1,0 +1,70 @@
+main {
+    padding-top: 32px;
+}
+.background {
+    background: url("https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+.package {
+    width: 80%;
+    margin: 16px 0;
+    border: 4px solid black;
+    border-left: none;   
+}
+.package:hover,
+.package:active {
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+    border-color: black;
+}
+.package a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 32px;
+}
+.package__badge {
+    position: absolute;
+    border: 3px solid black;
+    padding: 8px 16px;
+    margin: 32px;
+    left: 800px;
+    top: 48px;
+    background-color: #ffffff;
+}
+.package__subtitle {
+    color: black;
+}
+.package__info {
+    padding: 16px;
+    border: 1px solid black;
+    font-size: 20px;
+    color: white;
+    background: #fa923f;
+}
+.clearfix {
+    clear: both;
+}
+#plus {
+    background: #B9345A
+}
+#free {
+    background: #E83A59;
+    float: right;
+    border-right: none;
+    border-left: 4px solid black;
+    text-align: right;
+}
+#free:hover,
+#free:active {
+    border-left-color: black;
+}
+#premium {
+    background: #FF6263
+}
+#premium .package__title,
+#premium .package__subtitle{
+    color: black;
+}
