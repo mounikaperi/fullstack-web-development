@@ -1,0 +1,48 @@
+.e1--1{
+    background-color: blueviolet;
+}
+.e1--2 {
+    background-color: orangered;
+}
+.e1--3{
+    background-color: green;
+    height: 150px;
+}
+.e1--4 {
+    background-color: goldenrod;
+}
+.e1--5 {
+    background-color: steelblue;
+}
+.e1--6{
+    background-color: palevioletred;
+}
+.e1--7 {
+    background-color: yellow;
+}
+.e1--8 {
+    background-color: crimson;
+}
+.container {
+    font-family: sans-serif;
+    background-color: #ddd;
+    font-size: 32px;
+    margin: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.e1 {
+    flex: 1;
+}
+.e1--1 {
+    align-self: flex-start;
+}
+.e1--5{
+    align-self: stretch;
+    order: 1;
+}
+.e1--6 {
+    order: -1;
+}
