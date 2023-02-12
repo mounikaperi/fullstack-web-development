@@ -13,7 +13,6 @@ userName = enteredValue || 'Anna';
 console.log(userName) // Max
 
 // FOURTH ONE
-enteredValue = 'Max';
 userName = enteredValue && 'Anna';
 console.log(userName) // Anna
 
@@ -32,5 +31,4 @@ userName = "Max";
 console.log(!!userName); // true
 
 //Eight One
-userName = "Max";
 console.log(!userName); // false
