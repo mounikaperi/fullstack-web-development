@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      font-family: 'Roboto', open-sans;
+    }
+    body {
+      margin: 0;
+    }
+    header {
+      font-family: 'Calibri';
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-shadow: 1px black;
+      text-align: center;
+      background: #023d6d;
+      padding: 1rem;
+      width: 100%;
+    }
+    .main-app {
+      box-sizing: border-box;
+      text-align: center;
+    }
+    #results {
+      margin: 30px auto;
+      width: 50%;
+      padding: 1px;
+      border-radius: 10px;
+      text-align: center;
+      color: #023d6d;
+      border: 2px solid #023d6d;
+      text-align: center;
+    }
+    #calculator {
+      margin: 30px auto;
+      width: 30%;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      color: #023d6d;
+      border: 2px solid #023d6d;
+    }
+    #input-number {
+      margin: 10px auto;
+      font: inherit;
+      font-size: 2.5rem;
+      border: 2px solid #023d6d;
+      width: 15rem;
+      padding: 0px;
+      display: block;
+      color: #023d6d;
+      text-align: center;
+    }
+    #input-number :focus {
+      outline: none;
+    }
+    #calculator button {
+      font: inherit;
+      background: #023d6d;
+      color: white;
+      border: 1px solid #023d6d;
+      padding: 1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      width: 15%;
+      margin-bottom: 3px;
+    }
+    #calculator button:focus {
+      outline: none;
+    }
+    #calculator button:hover,
+    #calculator button:active {
+      background: #084f88;
+      border-color: #084f88;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Unconventional Calculator</h1>
+  </header>
+  <section id="calculator">
+    <input type="number" id="input-number" />
+    <div>
+      <button type="button" id="btn-add">+</button>
+      <button type="button" id="btn-subtract">-</button>
+      <button type="button" id="btn-multiply">*</button>
+      <button type="button" id="btn-divide">/</button>
+    </div>
+    <div>
+      <button type="button" onclick="display('1')">1</button>
+      <button type="button" onclick="display('2')">2</button>
+      <button type="button" onclick="display('3')">3</button>
+      <button type="button" id="btn-modulus">%</button>
+    </div>
+    <div>
+      <button type="button" onclick="display('4')">4</button>
+      <button type="button" onclick="display('5')">5</button>
+      <button type="button" onclick="display('6')">6</button>
+      <button type="button" id="btn-equalTo">=</button>
+    </div>
+    <div>
+      <button type="button" onclick="display('7')">7</button>
+      <button type="button" onclick="display('8')">8</button>
+      <button type="button" onclick="display('9')">9</button>
+      <button type="button" onclick="display('9')">0</button>
+    </div>
+  </section>
+  <section id="results">
+    <h2 id="current-calculation">0</h2>
+    <h2>Result: <span id="current-result">0</span></h2>
+  </section>
+  <script>
+    // Input Entered
+    const userInput = document.getElementById('input-number');
+
+    //Operators
+    const addBtn = document.getElementById('btn-add');
+    const subBtn = document.getElementById('btn-subtract');
+    const mulBtn = document.getElementById('btn-multiply');
+    const divBtn = document.getElementById('btn-divide');
+    const modBtn = document.getElementById('btn-modulus');
+    const equalToBtn = document.getElementById('btn-equalTo');
+
+    const currentCalculation = document.getElementById('current-calculation');
+    const result = document.getElementById('current-result');
+
+    let currentResult = 0;
+    let enteredNumber = 0;
+    let logEntries = [];
+
+    //To display the value of the button clicked on the text field
+    function display(valueClicked) {
+      userInput.value += valueClicked;
+      enteredNumber = parseInt(userInput.value);
+    }
+
+    function clearInput() {
+      userInput.value = "";
+    }
+
+    function createAndWriteOutput(initialResult, operator, enteredNumber, currentResult) {
+      const calcDescription = `${initialResult} ${operator} ${enteredNumber}`;
+      outputTheResult(currentResult, calcDescription);
+    }
+
+    function outputTheResult(finalResult, description) {
+      currentCalculation.textContent = description;
+      result.textContent = finalResult;
+    }
+
+    function writeToLog(operator, previousResult, enteredNumber, newResult) {
+      const logEntry = {
+        operation: operator,
+        previousResult: previousResult,
+        enteredNumber: enteredNumber,
+        newResult: newResult
+      };
+      logEntries.push(logEntry);
+      console.log(logEntries);
+    }
+
+    function calculateResults(calculationType) {
+      const initialResult = currentResult;
+      if (!['ADD', 'SUB', 'MUL', 'DIV', 'MOD'].includes(calculationType) || !enteredNumber) {
+        return;
+      }
+      let operator;
+      switch (calculationType) {
+        case 'ADD':
+          currentResult += enteredNumber;
+          operator = '+';
+          console.log(currentResult);
+          break;
+        case 'SUB':
+          currentResult -= enteredNumber;
+          operator = '-';
+          console.log(currentResult);
+          break;
+        case 'MUL':
+          currentResult *= enteredNumber;
+          operator = '*';
+          console.log(currentResult);
+          break;
+        case 'DIV':
+          currentResult /= enteredNumber;
+          operator = '/';
+          console.log(currentResult);
+          break;
+        case 'MOD':
+          currentResult %= enteredNumber;
+          operator = '%';
+          console.log(currentResult);
+          break;
+      }
+      createAndWriteOutput(initialResult, operator, enteredNumber, currentResult);
+      writeToLog(operator, initialResult, enteredNumber, currentResult);
+      clearInput();
+    }
+
+    function addition() {
+      calculateResults('ADD');
+    }
+    function subtraction() {
+      calculateResults('SUB');
+    }
+    function multiplication() {
+      calculateResults('MUL');
+    }
+    function division() {
+      calculateResults('DIV');
+    }
+    function modulusOperation() {
+      calculateResults('MOD');
+    }
+    addBtn.addEventListener('click', addition);
+    subBtn.addEventListener('click', subtraction);
+    mulBtn.addEventListener('click', multiplication);
+    divBtn.addEventListener('click', division);
+    modBtn.addEventListener('click', modulusOperation);
+  </script>
+</body>
+</html>
